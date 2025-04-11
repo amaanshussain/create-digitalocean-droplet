@@ -1,7 +1,7 @@
 NAME=$1
 SIZE=$2
 
-if [ "$NAME"=="" ]; then 
+if [ "$NAME" == "" ]; then 
         echo "Please enter a value for droplet_name"
         echo "./create-droplet.sh <droplet_name> <droplet_size>"
         echo "Ex. ./create-droplet.sh my-droplet s-1vcpu-2gb"

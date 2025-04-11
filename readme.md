@@ -4,6 +4,7 @@
 Playbook Variables:
 
 droplet-name : Name of the droplet
+
 droplet-size : Size of the droplet, sizes shown below
 
 
