@@ -14,7 +14,7 @@
         name: "{{ droplet_name }}"
         region: nyc3
         image: centos-stream-9-x64
-        size: s-2vcpu-4gb
+        size: "{{ droplet_size | default('s-1vcpu-2gb') }}"
         wait_timeout: 500
         ssh_keys: [ "{{ public_key }}" ]
       register: my_droplet
