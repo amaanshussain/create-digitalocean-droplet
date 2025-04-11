@@ -21,3 +21,6 @@
     - name: Display droplet
       ansible.builtin.debug:
         msg: "{{ my_droplet }}" 
+    - name: Display IP address
+      ansible.builtin.debug:
+        msg: "{{ (my_droplet.data.droplet.networks.v4 | selectattr('type', 'equalto', 'public')).0.ip_address | default('<none>', true) }}" 
