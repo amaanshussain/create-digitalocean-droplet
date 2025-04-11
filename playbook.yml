@@ -2,18 +2,17 @@
   hosts: localhost
   become: yes
   
-  variables:
-    droplet_name: "my-droplet"
-    public_key : "{{ lookup('file', 'sshkey.pub') }}"
+  vars:
+    public_key : "76:ae:9d:1b:49:fa:e3:9c:00:91:f9:9e:c9:0c:93:85"
   
   tasks: 
-    - name: Create a new Droplet (and assign to Project "test")
+    - name: Create a new Droplet
       community.digitalocean.digital_ocean_droplet:
+        api_token: "{{ lookup('ansible.builtin.env', 'DO_API_TOKEN') }}"
         state: active
         project: first-project
         name: "{{ droplet_name }}"
-        oauth_token: "{{ lookup('ansible.builtin.env', 'DO_API_TOKEN') }}"
-        region: nyco3
+        region: nyc3
         image: centos-stream-9-x64
         size: s-2vcpu-4gb
         wait_timeout: 500
